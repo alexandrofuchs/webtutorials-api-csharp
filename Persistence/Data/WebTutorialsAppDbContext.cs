@@ -9,9 +9,8 @@ namespace WebTutorialsApp.Persistence.Data
         #region ENTITIES
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Subsection> Courses { get; set; }
-        public DbSet<Post> Modules { get; set; }
-        public DbSet<PostFile> VideoClasses { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Video> Videos { get; set; }
         #endregion ENTITIES
 
         #region OVERRIDES METHODS DBCONTEXT
@@ -19,9 +18,8 @@ namespace WebTutorialsApp.Persistence.Data
         {
             modelBuilder.ApplyConfiguration(new UserMap());
             modelBuilder.ApplyConfiguration(new CategoryMap());
-            modelBuilder.ApplyConfiguration(new SubsectionMap());
-            modelBuilder.ApplyConfiguration(new PostMap());
-            modelBuilder.ApplyConfiguration(new FileMap());
+            modelBuilder.ApplyConfiguration(new SectionMap());
+            modelBuilder.ApplyConfiguration(new VideoMap());
         }
         #endregion OVERRIDES METHODS DBCONTEXT
 
@@ -29,7 +27,7 @@ namespace WebTutorialsApp.Persistence.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=WebTutorials-DB;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=WebTutorials-DB;Trusted_Connection=True;MultipleActiveResultSets=true"); 
         }
         #endregion DATABASE CONTEXT
     }

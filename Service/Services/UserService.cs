@@ -5,7 +5,7 @@ using WebTutorialsApp.Domain.Entities;
 using WebTutorialsApp.Domain.Models;
 using WebTutorialsApp.Domain.Repositories;
 using WebTutorialsApp.Domain.Services;
-using WebTutorialsApp.Middleware.Features;
+using WebTutorialsApp.Middleware.Security;
 
 namespace WebTutorialsApp.Middleware.Services
 {

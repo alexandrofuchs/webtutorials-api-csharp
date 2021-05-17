@@ -7,13 +7,13 @@ namespace WebTutorialsApp.Common.EntityClasses
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public string CreatedAt { get; set; }
+        public string UpdatedAt { get; set; }
         #endregion PROPERTIES
 
         #region CONSTRUCTORS
         protected EntityClass() { }
-        protected EntityClass(Guid id, DateTime createdAt, DateTime updatedAt)
+        protected EntityClass(Guid id, string createdAt, string updatedAt)
         {
             Id = id;
             CreatedAt = createdAt;

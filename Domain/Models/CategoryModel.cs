@@ -23,7 +23,7 @@ namespace WebTutorialsApp.Domain.Models
 
         #region METHODS
         public override Category ToEntity()
-            => new Category(Id, CreatedAt, OnUpdate, Description.Value);
+            => new Category(Id, CreatedAt.ToString(), OnUpdate.ToString(), Description.Value);
         #endregion METHODS
     }
 }

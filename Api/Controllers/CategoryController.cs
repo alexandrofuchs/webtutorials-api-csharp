@@ -1,16 +1,18 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using WebTutorialsApp.Api.Models.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using WebTutorialsApp.Api.Models.Requests;
+using WebTutorialsApp.Api.Models;
 using WebTutorialsApp.Common.Exceptions;
 using WebTutorialsApp.Domain.Models;
 using WebTutorialsApp.Domain.Services;
 using WebTutorialsApp.Domain.ValueObjects;
+using System.Collections.Generic;
 
 namespace WebTutorialsApp.Api.Controllers
 {
-    [Authorize]
+    [Authorize("admin")]
     [ApiController]
     public class CategoryController : Controller
     {
@@ -21,15 +23,49 @@ namespace WebTutorialsApp.Api.Controllers
             _service = service;
         }
 
+
+
         [HttpGet]
         [AllowAnonymous]
-        [Route("/category")]
+        [Route("/categories")]
         public async Task<IActionResult> GetCategories()
         {
             try
             {
                 var categories = await _service.Get();
-                return StatusCode(200, new { categories });
+                return StatusCode(200,
+                    new ResponseModel()
+                    {
+                        Data = categories,
+                        TotalItems = categories.Count,
+                        MaxPageItems = categories.Count                        
+                    });
+            }
+            catch
+            {
+                return StatusCode(400, "Error");
+            }
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("/categories/{pageIndex?}/{maxPageItems?}")]
+        public async Task<IActionResult> GetCategories(int? pageIndex=0, int? maxPageItems=5)
+        {
+            try
+            {
+                var totalItems = await _service.Count();
+                var categories = await _service.GetByPage(pageIndex, maxPageItems);
+                var totalPages = Math.Ceiling((double)totalItems / maxPageItems.Value);
+                return StatusCode(200,
+                    new ResponseModel(){
+                        Data = categories,
+                        TotalItems = totalItems,
+                        MaxPageItems = maxPageItems.Value,
+                        PageIndex = pageIndex.Value,
+                        TotalPages = (int) totalPages                       
+                    });                    
             }
             catch
             {
@@ -40,12 +76,15 @@ namespace WebTutorialsApp.Api.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("/category/{id?}")]
-        public async Task<IActionResult> GetCategories(Guid? id)
+        public async Task<IActionResult> GetCategory(Guid? id)
         {
             try
             {
                 var category = await _service.GetBy(id);
-                return StatusCode(200, new { category = category });
+                return StatusCode(200, new ResponseModel()
+                {
+                    Data = category
+                });
             }
             catch(Exception e)
             {
@@ -54,7 +93,6 @@ namespace WebTutorialsApp.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [Route("/category")]
         public async Task<IActionResult> Create(Guid? id, CategoryCreationModel creationModel)
         {

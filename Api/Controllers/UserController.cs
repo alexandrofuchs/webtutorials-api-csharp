@@ -10,9 +10,8 @@ using WebTutorialsApp.Common.Exceptions;
 
 namespace WebTutorialsApp.Api.Controllers
 {
-    [Authorize]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly IUserService _service;
         public UserController(IUserService service)
@@ -69,7 +68,22 @@ namespace WebTutorialsApp.Api.Controllers
                     var e = exception as InvalidModelException;
                     return StatusCode(400, new { e.Notifications });
                 }
-                return StatusCode(500, $"{exception.Message}: {exception.InnerException}");
+                return StatusCode(400, $"{exception.Message}: {exception.InnerException}");
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("user/validatetoken")]     
+        public async Task<IActionResult> ValidateToken()
+        {
+            try
+            {
+                return StatusCode(200, User.Identity.IsAuthenticated);
+            }
+            catch
+            {
+                return StatusCode(401, "unauthorized");
             }
         }
     }

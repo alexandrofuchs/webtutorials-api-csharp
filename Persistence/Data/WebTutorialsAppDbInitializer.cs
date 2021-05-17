@@ -4,7 +4,6 @@
     {
         public static void Initialize(WebTutorialsAppDbContext context)
         {
-            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
     }

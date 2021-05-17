@@ -47,8 +47,8 @@ namespace WebTutorialsApp.Domain.Models
         public override User ToEntity()
             => new (
                 Id,
-                CreatedAt,
-                OnUpdate,
+                CreatedAt.ToString(),
+                OnUpdate.ToString(),
                 Name.FirstName,
                 Name.LastName,
                 Email.Value,

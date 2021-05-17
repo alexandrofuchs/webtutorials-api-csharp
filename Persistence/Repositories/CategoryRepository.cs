@@ -13,14 +13,19 @@ namespace WebTutorialsApp.Persistence.Repositories
     {
         public CategoryRepository(WebTutorialsAppDbContext context) : base(context) { }
 
-        public async Task<Category> GetBy(Guid id) => 
+        public async Task<Category> GetBy(Guid id) =>
             await DbSet.Where(c => c.Id.Equals(id))
-            .Include(c => c.Subsections)            
+            .Include(c => c.Sections.OrderByDescending( x=> x.Description))            
             .FirstOrDefaultAsync();
+
+        public async Task<int> Count() => await GetCount();
 
         public async Task<Category> GetBy(string description) => await GetOne(c => c.Description.Trim().ToLower().Equals(description.Trim().ToLower()));
 
-        public async Task<IEnumerable<Category>> Get() => await GetAll();
+        public async Task<IEnumerable<Category>> Get() => await DbSet.ToListAsync();
+
+        public async Task<IEnumerable<Category>> GetByPage(int pageIndex, int maxItemsPerPage) 
+            => await GetItemsPaginated(x => x.Description, pageIndex, maxItemsPerPage);
 
         public async Task Create(Category entity) => await CreateOne(entity);
 
@@ -28,6 +33,6 @@ namespace WebTutorialsApp.Persistence.Repositories
 
         public async Task Delete(Category entity) => await DeleteOne(entity);
 
-        
+  
     }
 }

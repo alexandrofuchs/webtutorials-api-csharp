@@ -25,16 +25,18 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("UpdatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -45,64 +47,7 @@ namespace Persistence.Migrations
                     b.ToTable("CATEGORY");
                 });
 
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Post", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<Guid>("SubsectionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Description")
-                        .IsUnique()
-                        .HasDatabaseName("UK_DESCRIPTION");
-
-                    b.HasIndex("SubsectionId");
-
-                    b.ToTable("POST");
-                });
-
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.PostFile", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte[]>("Content")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("PostId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId")
-                        .IsUnique();
-
-                    b.ToTable("POSTFILE");
-                });
-
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Subsection", b =>
+            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Section", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -111,16 +56,18 @@ namespace Persistence.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("UpdatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -130,7 +77,7 @@ namespace Persistence.Migrations
                         .IsUnique()
                         .HasDatabaseName("UK_DESCRIPTION");
 
-                    b.ToTable("SUBSECTION");
+                    b.ToTable("SECTION");
                 });
 
             modelBuilder.Entity("WebTutorialsApp.Domain.Entities.User", b =>
@@ -139,8 +86,9 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -167,8 +115,9 @@ namespace Persistence.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("UpdatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -179,32 +128,45 @@ namespace Persistence.Migrations
                     b.ToTable("USER");
                 });
 
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Post", b =>
+            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Video", b =>
                 {
-                    b.HasOne("WebTutorialsApp.Domain.Entities.Subsection", "Subsection")
-                        .WithMany("Posts")
-                        .HasForeignKey("SubsectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Navigation("Subsection");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StoragedFileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("VIDEO");
                 });
 
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.PostFile", b =>
-                {
-                    b.HasOne("WebTutorialsApp.Domain.Entities.Post", "Post")
-                        .WithOne("File")
-                        .HasForeignKey("WebTutorialsApp.Domain.Entities.PostFile", "PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Post");
-                });
-
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Subsection", b =>
+            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Section", b =>
                 {
                     b.HasOne("WebTutorialsApp.Domain.Entities.Category", "Category")
-                        .WithMany("Subsections")
+                        .WithMany("Sections")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -212,19 +174,25 @@ namespace Persistence.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Video", b =>
+                {
+                    b.HasOne("WebTutorialsApp.Domain.Entities.Section", "Section")
+                        .WithMany("Videos")
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Section");
+                });
+
             modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Category", b =>
                 {
-                    b.Navigation("Subsections");
+                    b.Navigation("Sections");
                 });
 
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Post", b =>
+            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Section", b =>
                 {
-                    b.Navigation("File");
-                });
-
-            modelBuilder.Entity("WebTutorialsApp.Domain.Entities.Subsection", b =>
-                {
-                    b.Navigation("Posts");
+                    b.Navigation("Videos");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,11 +8,15 @@ namespace WebTutorialsApp.Domain.Services
 {
     public interface ICategoryService : IDisposable
     {
+        Task<int> Count();
+
+        Task<List<Category>> Get();
+
         Task<Category> GetBy(Guid? id);
 
-        Task<Category> GetBy(string? description);
+        Task<Category> GetBy(string description);        
 
-        Task<IEnumerable<Category>> Get();
+        Task<IEnumerable<Category>> GetByPage(int? pageIndex, int? maxItemsPerPage);
 
         Task Create(CategoryModel model);
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dn2Bi6XWbqe/UzOsa2tXjHZgDaOXflfcRbTqBK33cqPBJuSL3K8s1QYMwtYHlEOJDAB24uUZXwUO4rSDT/Nf/A==",
+  "dgSpecHash": "pMmosyv42qP1ufQOcrolE5G9Nwws6+RzUyrYqUOw5tFXuFswLiT2Z8yXqARfNke13V61v4kUCCGNkb6O6Q3a7A==",
   "success": true,
-  "projectFilePath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Persistence\\Persistence.csproj",
+  "projectFilePath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexandro\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Alexandro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

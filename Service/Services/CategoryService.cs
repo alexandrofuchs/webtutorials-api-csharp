@@ -15,10 +15,22 @@ namespace WebTutorialsApp.Middleware.Services
         private readonly ICategoryRepository _categoryRepository;
         public CategoryService(ICategoryRepository categoryRepository) => _categoryRepository = categoryRepository;
 
-        public async Task<IEnumerable<Category>> Get()
+        public async Task<IEnumerable<Category>> GetByPage(int? pageIndex = 0, int? maxItemsPerPage = 10)
         {
-            var categories = await _categoryRepository.Get();
+            var categories = await _categoryRepository.GetByPage(pageIndex.Value, maxItemsPerPage.Value);
             return categories.OrderBy(c => c.Description);
+        }
+
+        public async Task<int> Count()
+        {
+            return await _categoryRepository.Count();
+        }
+
+        public async Task<List<Category>> Get()
+        {
+            IEnumerable<Category> categories;
+            categories = await _categoryRepository.Get();
+            return categories.ToList();
         }
 
         public async Task<Category> GetBy(Guid? id)
@@ -64,5 +76,6 @@ namespace WebTutorialsApp.Middleware.Services
         }
 
         public void Dispose() => _categoryRepository?.Dispose();
+
     }
 }

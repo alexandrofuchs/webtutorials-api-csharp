@@ -5762,11 +5762,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Service\\Middleware.csproj",
+      "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\Middleware.csproj",
       "projectName": "Middleware",
-      "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Service\\Middleware.csproj",
+      "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\Middleware.csproj",
       "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
-      "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Service\\obj\\",
+      "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5789,11 +5789,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Domain\\Domain.csproj": {
-              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Domain\\Domain.csproj"
+            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj": {
+              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj"
             },
-            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Persistence\\Persistence.csproj": {
-              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Persistence\\Persistence.csproj"
+            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj": {
+              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj"
             }
           }
         }

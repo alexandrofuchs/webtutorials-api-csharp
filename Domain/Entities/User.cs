@@ -1,6 +1,4 @@
 ﻿using WebTutorialsApp.Common.EntityClasses;
-using WebTutorialsApp.Domain.Models;
-using WebTutorialsApp.Domain.ValueObjects;
 using System;
 
 namespace WebTutorialsApp.Domain.Entities
@@ -11,13 +9,13 @@ namespace WebTutorialsApp.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string Password { get; set; } 
         public bool IsAdmin { get; set; }
         #endregion PROPERTIES
 
         #region CONSTRUCTORS
         protected User() : base() { }
-        public User(Guid id, DateTime createdAt, DateTime updatedAt, string firstName, string lastName,
+        public User(Guid id, string createdAt, string updatedAt, string firstName, string lastName,
             string email, string password, bool isAdmin) : base(id, createdAt, updatedAt)
         {
             FirstName = firstName;

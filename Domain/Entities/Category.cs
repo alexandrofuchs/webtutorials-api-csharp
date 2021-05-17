@@ -8,13 +8,12 @@ namespace WebTutorialsApp.Domain.Entities
     {
         #region PROPERTIES
         public string Description { get; set; }
-
-        public virtual List<Subsection> Subsections { get; set; }
+        public virtual List<Section> Sections { get; set; }
         #endregion PROPERTIES
 
         #region CONSTRUCTORS
         protected Category() { }
-        public Category(Guid id, DateTime createdAt, DateTime updatedAt, string description)
+        public Category(Guid id, string createdAt, string updatedAt, string description)
         : base(id, createdAt, updatedAt) => Description = description;
         #endregion CONSTRUCTORS
 

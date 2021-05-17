@@ -44,3 +44,15 @@ E:\dev\C#\source\repos\github_web_streaming_project\web_streaming\Common\obj\Deb
 E:\dev\C#\source\repos\github_web_streaming_project\web_streaming\Common\obj\Debug\net5.0\Common.dll
 E:\dev\C#\source\repos\github_web_streaming_project\web_streaming\Common\obj\Debug\net5.0\ref\Common.dll
 E:\dev\C#\source\repos\github_web_streaming_project\web_streaming\Common\obj\Debug\net5.0\Common.pdb
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\bin\Debug\net5.0\Common.deps.json
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\bin\Debug\net5.0\Common.dll
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\bin\Debug\net5.0\ref\Common.dll
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\bin\Debug\net5.0\Common.pdb
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.csproj.CoreCompileInputs.cache
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.dll
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\ref\Common.dll
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.pdb
+E:\dev\C#\source\repos\github_web_streaming_project\web_tutorials\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache

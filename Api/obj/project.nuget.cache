@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pFtiQVK3r05xqo6UcpPNgXjo3qc37KdOwYkhIxAQ+8CmMUv4VXLztu2Q33mGDjs/h4zOFhd8Pqnai90RpKpA7Q==",
+  "dgSpecHash": "paYbQSF0lpNPdhI0/f3NdFlCOehQ4CFHfGhPs8qi0/5DRU7M/kESQuMxtguXVtpP06B7qEVv12yY2TNl+/FL7w==",
   "success": true,
-  "projectFilePath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_streaming - Copy\\Api\\Api.csproj",
+  "projectFilePath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexandro\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Alexandro\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

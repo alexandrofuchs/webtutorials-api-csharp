@@ -32,13 +32,29 @@ namespace WebTutorialsApp.Persistence.Repositories
                 .Where(predicate)
                 .FirstOrDefaultAsync();
 
-        protected virtual async Task<IEnumerable<Entity>> GetMany(Expression<Func<Entity, bool>> where, Expression<Func<Entity, DateTime>> orderBy, int? index = 0, int? maxItems = 5)
+
+        protected virtual async Task<IEnumerable<Entity>> GetItemsPaginated(Expression<Func<Entity, string>> orderBy, int pageIndex, int maxItemsPerPage)
+            => await DbSet
+                 .OrderBy(orderBy)
+                 .Skip(pageIndex * maxItemsPerPage)
+                 .Take(maxItemsPerPage)
+                 .ToListAsync();
+
+        protected virtual async Task<IEnumerable<Entity>> GetManyWhere(Expression<Func<Entity, bool>> where, Expression<Func<Entity, string>> orderBy, int? index = 0, int? maxItems = 5)
          => await DbSet
                 .Where(where)
                 .OrderBy(orderBy)
                 .Skip(index.Value * maxItems.Value)
                 .Take(maxItems.Value)
                 .ToListAsync();
+
+        protected virtual async Task<IEnumerable<Entity>> GetAllOrdernedByCreation(Expression<Func<Entity, string>> orderBy, int? index = 0, int? maxItems = 5)
+ => await DbSet
+        //.Where(where)
+        .OrderBy(orderBy)
+        //.Skip(index.Value * maxItems.Value)
+        //.Take(maxItems.Value)
+        .ToListAsync();
 
         protected virtual async Task CreateOne(Entity entity)
         {
