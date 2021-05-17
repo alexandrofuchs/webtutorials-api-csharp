@@ -12,7 +12,6 @@ namespace WebTutorialsApp.Api.WebServices
 {
     public class VideoStreamResult : FileStreamResult
     {
-        // default buffer size as defined in BufferedStream type
         private const int BufferSize = 0x1000;
         private string MultipartBoundary = "<qwe123>";
 
@@ -21,12 +20,6 @@ namespace WebTutorialsApp.Api.WebServices
         {
 
         }
-
-        //public VideoStreamResult(Stream fileStream, MediaTypeHeaderValue contentType)
-        //    : base(fileStream, contentType)
-        //{
-
-        //}
 
         private bool IsMultipartRequest(RangeHeaderValue range)
         {

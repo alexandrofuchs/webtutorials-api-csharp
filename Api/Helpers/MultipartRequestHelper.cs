@@ -6,7 +6,6 @@ namespace WebTutorialsApp.Api.Helpers
 {
     public static class MultipartRequestHelper
     {
-        // Content-Type: multipart/form-data; boundary="----WebKitFormBoundarymx2fSWqWSd0OxQqq"
         public static string GetBoundary(MediaTypeHeaderValue contentType, int lengthLimit)
         {
             var boundary = HeaderUtilities.RemoveQuotes(contentType.Boundary).Value;
@@ -33,16 +32,14 @@ namespace WebTutorialsApp.Api.Helpers
 
         public static bool HasFormDataContentDisposition(ContentDispositionHeaderValue contentDisposition)
         {
-            // Content-Disposition: form-data; name="key";
             return contentDisposition != null
-                && contentDisposition.DispositionType.Equals("form-data")
-                && string.IsNullOrEmpty(contentDisposition.FileName.Value)
-                && string.IsNullOrEmpty(contentDisposition.FileNameStar.Value);
+               && contentDisposition.DispositionType.Equals("form-data")
+               && string.IsNullOrEmpty(contentDisposition.FileName.Value)
+               && string.IsNullOrEmpty(contentDisposition.FileNameStar.Value);
         }
 
         public static bool HasFileContentDisposition(ContentDispositionHeaderValue contentDisposition)
         {
-            // Content-Disposition: form-data; name="myfile1"; filename="Misc 002.jpg"
             return contentDisposition != null
                 && contentDisposition.DispositionType.Equals("form-data")
                 && (!string.IsNullOrEmpty(contentDisposition.FileName.Value)

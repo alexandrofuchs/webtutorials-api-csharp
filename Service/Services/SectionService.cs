@@ -105,8 +105,14 @@ namespace WebTutorialsApp.Middleware.Services
             return await _subsectionRepository.GetBy(id.Value);
         }
 
-        public IEnumerable<Video> GetCourseModules(Guid categoryId) => throw new NotImplementedException();
-
-
+        public async Task Delete(Section model)
+        {
+            var countVideos = await _subsectionRepository.GetVideosCount(model.Id);
+            if(countVideos > 0)
+            {
+                throw new Exception("Invalid Operation");
+            }
+            await _subsectionRepository.Delete(model);
+        }
     }
 }

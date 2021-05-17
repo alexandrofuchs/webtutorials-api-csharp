@@ -20,8 +20,8 @@ namespace WebTutorialsApp.Domain.Services
 
         Task Create(CategoryModel model);
 
-        Task Update(CategoryModel model);
+        Task Update(Category model);
 
-        Task Delete(CategoryModel model);
+        Task Delete(Category model);
     }
 }

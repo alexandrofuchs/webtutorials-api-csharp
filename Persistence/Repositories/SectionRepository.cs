@@ -34,5 +34,11 @@ namespace WebTutorialsApp.Persistence.Repositories
         {
             return await DbSet.Where(x => x.CategoryId.Equals(categoryId)).ToListAsync();
         }
+
+        public async Task<int> GetVideosCount(Guid sectionId)
+        {
+           var section = await DbSet.Where(x => x.Id.Equals(sectionId)).FirstOrDefaultAsync();
+            return section.Videos.Count; 
+        }
     }
 }

@@ -23,8 +23,6 @@ namespace WebTutorialsApp.Api.Controllers
             _service = service;
         }
 
-
-
         [HttpGet]
         [AllowAnonymous]
         [Route("/categories")]
@@ -101,6 +99,28 @@ namespace WebTutorialsApp.Api.Controllers
                 var model = new CategoryModel(new Description(creationModel.Description));
                 await _service.Create(model);
                 return StatusCode(200, new { model });
+            }
+            catch (Exception exception)
+            {
+                if (exception is InvalidModelException)
+                {
+                    var e = exception as InvalidModelException;
+                    return StatusCode(400, new { e.Notifications });
+                }
+                return StatusCode(400, $"{exception.Message}: {exception.InnerException}");
+            }
+        }
+
+
+        [HttpDelete]
+        [Route("/category/{id?}")]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            try
+            {
+                var category = await _service.GetBy(id);
+                await _service.Delete(category);
+                return StatusCode(200);
             }
             catch (Exception exception)
             {

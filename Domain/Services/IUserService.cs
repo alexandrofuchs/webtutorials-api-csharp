@@ -15,10 +15,10 @@ namespace WebTutorialsApp.Domain.Services
 
         Task Register(UserModel userModel);
 
-        Task UpdateInformations(UserModel userModel);
+        Task UpdateInformations(User model);
 
-        Task UpdatePassword(string password);
+        Task UpdatePassword(Guid? id, string password);        
 
-        Task Delete(UserModel userModel);
+        Task Delete(User userModel);
     }
 }

@@ -65,14 +65,14 @@ namespace WebTutorialsApp.Middleware.Services
             await _categoryRepository.Create(model.ToEntity());
         }
 
-        public Task Update(CategoryModel model)
+        public async Task Update(Category model)
         {
-            throw new NotImplementedException();
+            await _categoryRepository.Update(model);
         }
 
-        public Task Delete(CategoryModel model)
+        public async Task Delete(Category model)
         {
-            throw new NotImplementedException();
+            await _categoryRepository.Delete(model);
         }
 
         public void Dispose() => _categoryRepository?.Dispose();

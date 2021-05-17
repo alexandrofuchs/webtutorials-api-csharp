@@ -16,7 +16,9 @@ namespace WebTutorialsApp.Domain.Services
 
         Task<int> GetPostPagesCount(Guid? sectionId = null, int? maxItemsPage = 5);
 
-        Task Create(SectionModel model);               
+        Task Create(SectionModel model);
+
+        Task Delete(Section model);
 
         Task<IEnumerable<Section>> GetByCategory(Guid? categoryId=null, int? pageIndex=0, int? maxPageItems=10);
 

@@ -12,7 +12,8 @@ namespace WebTutorialsApp.Domain.Repositories
         Task<IEnumerable<Section>> GetByCategory(Guid categoryId, int? index = 0, int? maxItems = 5);
         Task<IEnumerable<Section>> GetSections(Guid categoryId);
         Task<int> Count();
-        Task<int> CountBy(Guid sectionId);        
+        Task<int> CountBy(Guid sectionId);
+        Task<int> GetVideosCount(Guid sectionId);
         Task Create(Section entity);
         Task Update(Section entity);
         Task Delete(Section entity);

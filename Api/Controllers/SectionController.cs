@@ -99,7 +99,6 @@ namespace WebTutorialsApp.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [Route("/category/{categoryId?}/section")]
         public async Task<IActionResult> Create(Guid? categoryId, [FromBody] SubsectionCreationModel model)
         {
@@ -108,6 +107,27 @@ namespace WebTutorialsApp.Api.Controllers
                 var createdSubsection = new SectionModel(new Description(model.Description), categoryId.Value);
                 await _service.Create(createdSubsection);
                 return StatusCode(200, createdSubsection );
+            }
+            catch (Exception exception)
+            {
+                if (exception is InvalidModelException)
+                {
+                    var e = exception as InvalidModelException;
+                    return StatusCode(400, new { e.Notifications });
+                }
+                return StatusCode(400, $"{exception.Message}: {exception.InnerException}");
+            }
+        }
+        
+        [HttpDelete]
+        [Route("/section/{id?}")]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            try
+            {
+                var section = await _service.GetBy(id);
+                await _service.Delete(section);
+                return StatusCode(200, "ok");
             }
             catch (Exception exception)
             {

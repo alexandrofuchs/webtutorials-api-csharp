@@ -86,5 +86,51 @@ namespace WebTutorialsApp.Api.Controllers
                 return StatusCode(401, "unauthorized");
             }
         }
+
+        [HttpDelete]
+        [Authorize]
+        [Route("user/{id?}")]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            try
+            {
+                var user = await _service.GetBy(id.Value);
+                await _service.Delete(user);
+                return StatusCode(200);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(400, e.Message);
+            }
+        }
+
+        [HttpPatch]
+        [Authorize]
+        [Route("user/{id?}")]
+        public async Task<IActionResult> Update(Guid? id, [FromBody] UserUpdateModel model)
+        {
+            try
+            {
+                var user = await _service.GetBy(id.Value);
+                if(user != null) {
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.Email = model.Email;
+                    await _service.UpdateInformations(user);
+                    return StatusCode(200);
+                }
+                return StatusCode(400);
+            }
+            catch (Exception exception)
+            {
+                if (exception is InvalidModelException)
+                {
+                    var e = exception as InvalidModelException;
+                    return StatusCode(400, new { e.Notifications });
+                }
+                return StatusCode(400, $"{exception.Message}: {exception.InnerException}");
+            }
+         
+        }
     }
 }

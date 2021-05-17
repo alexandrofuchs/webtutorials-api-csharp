@@ -16,7 +16,7 @@ namespace WebTutorialsApp.Api.Helpers
     public static class FileHelpers
     {
         private static readonly byte[] _allowedChars = { };
-        
+
         //(https://www.filesignatures.net/)
         private static readonly Dictionary<string, List<byte[]>> _fileSignature = new Dictionary<string, List<byte[]>>
         {
@@ -63,9 +63,6 @@ namespace WebTutorialsApp.Api.Helpers
 
         };
 
-        //the file's content isn't scanned.
-        // In production scenarios, an anti-virus/anti-malware scanner API is
-        // used 
         public static async Task<byte[]> ProcessFormFile<T>(IFormFile formFile,
             ModelStateDictionary modelState, string[] permittedExtensions,
             long sizeLimit)
@@ -137,8 +134,7 @@ namespace WebTutorialsApp.Api.Helpers
             {
                 modelState.AddModelError(formFile.Name,
                     $"{fieldDisplayName}({trustedFileNameForDisplay}) upload failed. " +
-                    $"Please contact the Help Desk for support. Error: {ex.HResult}");
-                // Log the exception
+                    $"Please contact the Help Desk for support. Error: {ex.HResult}");       
             }
 
             return new byte[0];
@@ -154,7 +150,6 @@ namespace WebTutorialsApp.Api.Helpers
                 {
                     await section.Body.CopyToAsync(memoryStream);
 
-                    // Check if the file is empty or exceeds the size limit.
                     if (memoryStream.Length == 0)
                     {
                         modelState.AddModelError("File", "The file is empty.");
@@ -184,7 +179,6 @@ namespace WebTutorialsApp.Api.Helpers
                 modelState.AddModelError("File",
                     "The upload failed. Please contact the Help Desk " +
                     $" for support. Error: {ex.HResult}");
-                // Log the exception
             }
 
             return new byte[0];
@@ -212,7 +206,6 @@ namespace WebTutorialsApp.Api.Helpers
                 {
                     if (_allowedChars.Length == 0)
                     {
-                        // Limits characters to ASCII encoding.
                         for (var i = 0; i < data.Length; i++)
                         {
                             if (reader.ReadByte() > sbyte.MaxValue)
@@ -223,8 +216,6 @@ namespace WebTutorialsApp.Api.Helpers
                     }
                     else
                     {
-                        // Limits characters to ASCII encoding and
-                        // values of the _allowedChars array.
                         for (var i = 0; i < data.Length; i++)
                         {
                             var b = reader.ReadByte();
