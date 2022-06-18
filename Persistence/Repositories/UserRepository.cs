@@ -16,13 +16,13 @@ namespace WebTutorialsApp.Persistence.Repositories
         public async Task<User> GetBy(string email) 
             => await GetOne(x => x.Email.Equals(email));
 
-        public async Task Create(User entity)
+        public async Task<User> Create(User entity)
             => await CreateOne(entity);         
         
-        public async Task Update(User entity)
+        public async Task<User> Update(User entity)
             => await UpdateOne(entity);
         
-        public async Task Delete(User entity) 
+        public async Task<User> Delete(User entity) 
             => await DeleteOne(entity);
     }
 }

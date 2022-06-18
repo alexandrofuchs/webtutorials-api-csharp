@@ -32,13 +32,13 @@ namespace WebTutorialsApp.Persistence.Repositories
            return await GetAllOrdernedByCreation( v => v.UpdatedAt);
         }
 
-        public async Task Create(Video entity)
+        public async Task<Video> Create(Video entity)
             => await CreateOne(entity);
 
-        public async Task Update(Video entity)
+        public async Task<Video> Update(Video entity)
             => await UpdateOne(entity);
 
-        public async Task Delete(Video entity)
+        public async Task<Video> Delete(Video entity)
             => await DeleteOne(entity);
 
         public Task<IEnumerable<Video>> Get()

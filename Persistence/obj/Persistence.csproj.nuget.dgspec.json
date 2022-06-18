@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj": {}
+    "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\Common.csproj": {
+    "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\Common.csproj",
+        "projectUniqueName": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\Common.csproj",
+        "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
-        "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\obj\\",
+        "outputPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -60,18 +60,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj": {
+    "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj",
+        "projectUniqueName": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj",
+        "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
-        "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\obj\\",
+        "outputPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -94,8 +94,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\Common.csproj": {
-                "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Common\\Common.csproj"
+              "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\Common.csproj": {
+                "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Common\\Common.csproj"
               }
             }
           }
@@ -124,18 +124,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj": {
+    "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj",
+        "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
-        "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\obj\\",
+        "outputPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -158,8 +158,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj": {
-                "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj"
+              "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj": {
+                "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj"
               }
             }
           }
@@ -204,7 +204,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

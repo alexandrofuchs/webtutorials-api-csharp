@@ -5762,11 +5762,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\Middleware.csproj",
+      "projectUniqueName": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Service\\Middleware.csproj",
       "projectName": "Middleware",
-      "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\Middleware.csproj",
+      "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Service\\Middleware.csproj",
       "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
-      "outputPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Service\\obj\\",
+      "outputPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5789,11 +5789,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj": {
-              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Domain\\Domain.csproj"
+            "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj": {
+              "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Domain\\Domain.csproj"
             },
-            "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj": {
-              "projectPath": "E:\\dev\\C#\\source\\repos\\github_web_streaming_project\\web_tutorials\\Persistence\\Persistence.csproj"
+            "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj": {
+              "projectPath": "E:\\VS WorkSpace\\webtutorials-api-csharp\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -5822,7 +5822,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

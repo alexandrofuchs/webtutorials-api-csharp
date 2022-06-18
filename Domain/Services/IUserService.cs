@@ -13,12 +13,12 @@ namespace WebTutorialsApp.Domain.Services
 
         Task<string> Authenticate(string email, string password);
 
-        Task Register(UserModel userModel);
+        Task<User> Register(UserModel userModel);
 
-        Task UpdateInformations(User model);
+        Task<User> UpdateInformations(User model);
 
-        Task UpdatePassword(Guid? id, string password);        
+        Task<User> UpdatePassword(Guid? id, string password);
 
-        Task Delete(User userModel);
+        Task<User> Delete(User userModel);
     }
 }

@@ -14,8 +14,8 @@ namespace WebTutorialsApp.Domain.Repositories
         Task<int> Count();
         Task<int> CountBy(Guid sectionId);
         Task<int> GetVideosCount(Guid sectionId);
-        Task Create(Section entity);
-        Task Update(Section entity);
-        Task Delete(Section entity);
+        Task<Section> Create(Section entity);
+        Task<Section> Update(Section entity);
+        Task<Section> Delete(Section entity);
     }
 }

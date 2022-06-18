@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = DomainTests
+build_property.ProjectDir = E:\VS WorkSpace\webtutorials-api-csharp\DomainTests\

@@ -8,8 +8,8 @@ namespace WebTutorialsApp.Domain.Repositories
     {
         Task<User> GetBy(Guid id);
         Task<User> GetBy(string email);
-        Task Create(User entity);
-        Task Update(User entity);
-        Task Delete(User entity);
+        Task<User> Create(User entity);
+        Task<User> Update(User entity);
+        Task<User> Delete(User entity);
     }
 }

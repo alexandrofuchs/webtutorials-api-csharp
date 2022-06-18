@@ -74,7 +74,7 @@ namespace WebTutorialsApp.Middleware.Services
             return (int)Math.Ceiling(totalPages);
         }
 
-        public async Task Create(SectionModel model)
+        public async Task<Section> Create(SectionModel model)
         {
             if (!model.IsModelValid())
             {
@@ -88,7 +88,7 @@ namespace WebTutorialsApp.Middleware.Services
             {
                 throw new Exception("Subsection description already Exists!");
             }
-            await _subsectionRepository.Create(model.ToEntity());
+            return await _subsectionRepository.Create(model.ToEntity());
         }
 
         public void Dispose()
@@ -105,14 +105,14 @@ namespace WebTutorialsApp.Middleware.Services
             return await _subsectionRepository.GetBy(id.Value);
         }
 
-        public async Task Delete(Section model)
+        public async Task<Section> Delete(Section model)
         {
             var countVideos = await _subsectionRepository.GetVideosCount(model.Id);
             if(countVideos > 0)
             {
                 throw new Exception("Invalid Operation");
             }
-            await _subsectionRepository.Delete(model);
+            return await _subsectionRepository.Delete(model);
         }
     }
 }

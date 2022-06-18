@@ -52,7 +52,7 @@ namespace WebTutorialsApp.Api
             {
                 options.MultipartBodyLengthLimit = Configuration.GetValue<long>("MultipartBodyLengthLimit");
             });
-            var physicalProvider = new PhysicalFileProvider(Configuration.GetValue<string>("StoredFilesPath"));
+            var physicalProvider = new PhysicalFileProvider("d:/files");
             services.AddSingleton<IFileProvider>(physicalProvider);
 
 

@@ -47,12 +47,12 @@ namespace WebTutorialsApp.Middleware.Services
             return foundCategory;
         }
 
-         public Task<Category> GetBy(string? description)
+         public Task<Category> GetBy(string description)
         {
             throw new NotImplementedException();
         }
 
-        public async Task Create(CategoryModel model)
+        public async Task<Category> Create(CategoryModel model)
         {
             if (!model.IsModelValid())
             {
@@ -62,17 +62,17 @@ namespace WebTutorialsApp.Middleware.Services
             {
                 throw new Exception("category description already exists!");
             }
-            await _categoryRepository.Create(model.ToEntity());
+            return await  _categoryRepository.Create(model.ToEntity());
         }
 
-        public async Task Update(Category model)
+        public async Task<Category> Update(Category model)
         {
-            await _categoryRepository.Update(model);
+            return await _categoryRepository.Update(model);
         }
 
-        public async Task Delete(Category model)
+        public async Task<Category> Delete(Category model)
         {
-            await _categoryRepository.Delete(model);
+           return await _categoryRepository.Delete(model);
         }
 
         public void Dispose() => _categoryRepository?.Dispose();

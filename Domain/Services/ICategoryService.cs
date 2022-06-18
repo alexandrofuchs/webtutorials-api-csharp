@@ -18,10 +18,10 @@ namespace WebTutorialsApp.Domain.Services
 
         Task<IEnumerable<Category>> GetByPage(int? pageIndex, int? maxItemsPerPage);
 
-        Task Create(CategoryModel model);
+        Task<Category> Create(CategoryModel model);
 
-        Task Update(Category model);
+        Task<Category> Update(Category model);
 
-        Task Delete(Category model);
+        Task<Category> Delete(Category model);
     }
 }

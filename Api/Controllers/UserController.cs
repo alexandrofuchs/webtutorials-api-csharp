@@ -37,7 +37,7 @@ namespace WebTutorialsApp.Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("user/register")]
+        [Route("/user")]
         public async Task<IActionResult> Register([FromBody] UserCreationModel model)
         {
             try
@@ -84,6 +84,23 @@ namespace WebTutorialsApp.Api.Controllers
             catch
             {
                 return StatusCode(401, "unauthorized");
+            }
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        [Route("user/{id?}")]
+        public async Task<IActionResult> GetById(Guid? id)
+        {
+            try
+            {
+                var user = await _service.GetBy(id.Value);
+                return StatusCode(200);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(400, e.Message);
             }
         }
 

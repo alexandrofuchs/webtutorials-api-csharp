@@ -14,8 +14,8 @@ namespace WebTutorialsApp.Domain.Repositories
         Task<Video> GetBy(string description);
         Task<IEnumerable<Video>> GetBySection(Guid sectionId);
         Task<IEnumerable<Video>> GetByCategory(Guid categoryId);
-        Task Create(Video entity);
-        Task Update(Video entity);
-        Task Delete(Video entity);
+        Task<Video> Create(Video entity);
+        Task<Video> Update(Video entity);
+        Task<Video> Delete(Video entity);
     }
 }

@@ -14,9 +14,14 @@ namespace WebTutorialsApp.Middleware.Services
     {
         private readonly IUserRepository _repository;
         private readonly PasswordEncryptation _passwordEncryptation;
-        public UserService(IUserRepository repository, PasswordEncryptation passwordEncryptation)
+
+        public UserService(IUserRepository repository)
         {
             _repository = repository;
+        }
+
+        public UserService(IUserRepository repository, PasswordEncryptation passwordEncryptation) : this(repository)
+        {          
             _passwordEncryptation = passwordEncryptation;
         }
 
@@ -39,7 +44,7 @@ namespace WebTutorialsApp.Middleware.Services
             return token;
         }
 
-        public async Task Register(UserModel model)
+        public async Task<User> Register(UserModel model)
         {
             if (!model.IsModelValid())
             {
@@ -51,12 +56,12 @@ namespace WebTutorialsApp.Middleware.Services
                 throw new Exception("Email already registered!");
             }
             model.Password.OnEncrypt(_passwordEncryptation.Encrypt(model.Password.Value));
-            await _repository.Create(model.ToEntity());
+            return await _repository.Create(model.ToEntity());
         }
 
-        public async Task Delete(User userModel) => await _repository.Delete(userModel);
+        public async Task<User> Delete(User userModel) => await _repository.Delete(userModel);
 
-        public async Task UpdateInformations(User user) {
+        public async Task<User> UpdateInformations(User user) {
 
             var name = new Name(user.FirstName, user.LastName);
             var email = new Email(user.Email);
@@ -78,10 +83,10 @@ namespace WebTutorialsApp.Middleware.Services
                 }
                 
             }       
-            await _repository.Update(user);          
+            return await  _repository.Update(user);          
         } 
 
-        public async Task UpdatePassword(Guid? id, string password) {
+        public async Task<User> UpdatePassword(Guid? id, string password) {
 
             if (!id.HasValue)
             {
@@ -101,7 +106,7 @@ namespace WebTutorialsApp.Middleware.Services
                 throw new Exception("user not found!");
             }
             foundUser.Password = _passwordEncryptation.Encrypt(password);
-            await _repository.Update(foundUser);
+            return await  _repository.Update(foundUser);
 
         }
 

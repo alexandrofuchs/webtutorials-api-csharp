@@ -27,11 +27,11 @@ namespace WebTutorialsApp.Persistence.Repositories
         public async Task<IEnumerable<Category>> GetByPage(int pageIndex, int maxItemsPerPage) 
             => await GetItemsPaginated(x => x.Description, pageIndex, maxItemsPerPage);
 
-        public async Task Create(Category entity) => await CreateOne(entity);
+        public async Task<Category> Create(Category entity) => await CreateOne(entity);
 
-        public async Task Update(Category entity) => await UpdateOne(entity);
+        public async Task<Category> Update(Category entity) => await UpdateOne(entity);
 
-        public async Task Delete(Category entity) => await DeleteOne(entity);
+        public async Task<Category> Delete(Category entity) => await DeleteOne(entity);
 
   
     }

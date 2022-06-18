@@ -86,7 +86,7 @@ namespace WebTutorialsApp.Api.Controllers
             }
             catch(Exception e)
             {
-                return StatusCode(400, $"Error: {e.Message}: {e.InnerException}");
+                return StatusCode(400, e);
             }
         }
 

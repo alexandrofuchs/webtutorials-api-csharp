@@ -24,11 +24,11 @@ namespace WebTutorialsApp.Persistence.Repositories
         public async Task<IEnumerable<Section>> GetByCategory(Guid categoryId, int? index = 0, int? maxItems = 5)
             => await GetItemsPaginated(c => c.Description, index.Value, maxItems.Value);        
 
-        public async Task Create(Section entity) => await CreateOne(entity);
+        public async Task<Section> Create(Section entity) => await CreateOne(entity);
 
-        public async Task Update(Section entity) => await UpdateOne(entity);
+        public async Task<Section> Update(Section entity) => await UpdateOne(entity);
 
-        public async Task Delete(Section entity) => await DeleteOne(entity);
+        public async Task<Section> Delete(Section entity) => await DeleteOne(entity);
 
         public async Task<IEnumerable<Section>> GetSections(Guid categoryId)
         {

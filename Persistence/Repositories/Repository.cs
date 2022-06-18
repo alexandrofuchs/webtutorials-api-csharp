@@ -53,23 +53,26 @@ namespace WebTutorialsApp.Persistence.Repositories
                     .OrderBy(orderBy)
                     .ToListAsync();
 
-        protected virtual async Task CreateOne(Entity entity)
+        protected virtual async Task<Entity> CreateOne(Entity entity)
         {
             await DbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
+            return entity;
         }
 
-        protected virtual async Task UpdateOne(Entity entity)
+        protected virtual async Task<Entity> UpdateOne(Entity entity)
         {
             _context.Entry<Entity>(entity)
                 .State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _context.SaveChangesAsync();
+            return entity;
         }
 
-        protected virtual async Task DeleteOne(Entity entity)
+        protected virtual async Task<Entity> DeleteOne(Entity entity)
         {
             _context.Set<Entity>().Remove(entity);
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public void Dispose() => _context.DisposeAsync();
