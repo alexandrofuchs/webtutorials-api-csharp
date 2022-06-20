@@ -26,7 +26,10 @@ namespace WebTutorialsApp.Api.Controllers
         {
             try
             {
-                var token = await _service.Authenticate(userAuthenticationModel.Email, userAuthenticationModel.Password);
+                var token = await _service.Authenticate(
+                    userAuthenticationModel.Email, 
+                    userAuthenticationModel.Password
+                );
                 return StatusCode(200, new { token = token });
             }
             catch (Exception expection)

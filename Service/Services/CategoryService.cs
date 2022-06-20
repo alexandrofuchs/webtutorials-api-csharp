@@ -7,6 +7,7 @@ using WebTutorialsApp.Domain.Entities;
 using WebTutorialsApp.Domain.Models;
 using WebTutorialsApp.Domain.Repositories;
 using WebTutorialsApp.Domain.Services;
+using WebTutorialsApp.Domain.ValueObjects;
 
 namespace WebTutorialsApp.Middleware.Services
 {
@@ -47,9 +48,14 @@ namespace WebTutorialsApp.Middleware.Services
             return foundCategory;
         }
 
-         public Task<Category> GetBy(string description)
+        public Task<Category> GetBy(string description)
         {
-            throw new NotImplementedException();
+            var desc = new Description(description);
+            if(!desc.IsModelValid())
+            {
+                throw new Exception("Invalid Description!");
+            }
+            return _categoryRepository.GetBy(description);
         }
 
         public async Task<Category> Create(CategoryModel model)

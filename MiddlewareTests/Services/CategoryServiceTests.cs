@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
 using WebTutorialsApp.Middleware.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using WebTutorialsApp.Domain.Repositories;
@@ -45,7 +42,7 @@ namespace Categories.Tests
         }
 
         [Test()]
-        public async Task FailCreateCategoryTest()
+        public void FailCreateCategoryTest()
         {
             Category cat = new Category(
                     new Guid(),
@@ -56,14 +53,13 @@ namespace Categories.Tests
             repository.Setup(r => r.GetBy(It.IsAny<string>())).ReturnsAsync(cat);
             repository.Setup(r => r.Create(It.IsAny<Category>())).ReturnsAsync(cat);
 
-            var result = await service.Create(new CategoryModel(new Description("Categoria Teste")));
-
-            Assert.IsInstanceOf<Exception>(result);
+            Exception ex = Assert.ThrowsAsync<Exception>(async () => await service.Create(new CategoryModel(new Description("Categoria Teste"))));
+            Assert.That(ex.Message, Is.EqualTo("category description already exists!"));
         }
 
         [Test()]
-        public async Task GetACategoryTest() 
-        { 
+        public async Task GetByIdTest()
+        {
 
             Guid id = new Guid();
 
@@ -77,7 +73,31 @@ namespace Categories.Tests
 
             var result = await service.GetBy(id);
 
-            Assert.IsInstanceOf<Category>(result, "Buscar uma categoria");
+            Assert.IsInstanceOf<Category>(result, "Buscar uma categoria por id");
+        }
+
+        [Test]
+        public async Task GetByDescriptionTest()
+        {
+            var description = "";
+
+            Category cat = new Category(
+                   new Guid(),
+                   DateTime.Now.ToShortDateString(),
+                   DateTime.Now.ToShortDateString(),
+                   "Categoria Teste");
+
+            repository.Setup(r => r.GetBy(It.IsAny<string>())).ReturnsAsync(cat);
+            
+            Exception ex = Assert.ThrowsAsync<Exception>(async () => await service.GetBy(description));
+
+            Assert.That(ex.Message, Is.EqualTo("Invalid Description!"));
+           
+            description = "Categoria Teste";
+
+            var result = await service.GetBy(description);
+
+            Assert.IsInstanceOf<Category>(result, "Buscar Categoria válida");
         }
     }
 }

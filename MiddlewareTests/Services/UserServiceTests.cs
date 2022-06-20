@@ -2,8 +2,6 @@
 using WebTutorialsApp.Domain.Repositories;
 using Moq;
 using WebTutorialsApp.Domain.Entities;
-using System;
-using WebTutorialsApp.Domain.Services;
 using WebTutorialsApp.Middleware.Services;
 using WebTutorialsApp.Domain.Models;
 using WebTutorialsApp.Domain.ValueObjects;
@@ -25,8 +23,8 @@ namespace Service.Tests
            service = new UserService(repository.Object,new PasswordEncryptation());
         }
 
-        [TestCase(true)]
-        public async Task RegisterAsync(bool expectedResult) 
+        [Test]
+        public async Task RegisterAsync() 
         {
             User notFoundUser = null;
 
